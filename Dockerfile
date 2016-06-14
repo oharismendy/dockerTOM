@@ -16,7 +16,7 @@ RUN apt-get install -y git && \
 	git clone https://github.com/lh3/bwa.git && \
 	wait && \
 	cd bwa && \
-	make && \
+	make
 
 
 
