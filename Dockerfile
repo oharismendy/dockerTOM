@@ -8,6 +8,8 @@ MAINTAINER Olivier Harismendy "oharismendy@ucsd.edu"
 WORKDIR /opt
 
 ### install 
+RUN apt-get update
+ 
 RUN git clone https://github.com/lh3/bwa.git && \
 	cd bwa && \
 	make 
