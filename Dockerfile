@@ -9,6 +9,8 @@ WORKDIR /opt
 
 ### install 
 RUN apt-get update
+
+RUN apt-get install git
  
 RUN git clone https://github.com/lh3/bwa.git && \
 	cd bwa && \
