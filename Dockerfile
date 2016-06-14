@@ -10,11 +10,10 @@ WORKDIR /opt
 ### install 
 RUN apt-get update
 
-RUN apt-get install -y samtools
+RUN apt-get install -y samtools make
 
 RUN apt-get install -y git && \
 	git clone https://github.com/lh3/bwa.git && \
-	wait && \
 	cd bwa && \
 	make
 
