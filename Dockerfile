@@ -10,12 +10,18 @@ WORKDIR /opt
 ### install 
 RUN apt-get update
 
-RUN apt-get install -y samtools make
+RUN apt-get install -y  autoconf build-essential git g++ libncurses5-dev \
+ libssl-dev make pkg-config software-properties-common python wget zip zlibc \
+ zlib1g zlib1g-dev
 
-RUN apt-get install -y git && \
-	git clone https://github.com/lh3/bwa.git && \
+RUN apt-get install -y samtools
+
+RUN git clone https://github.com/lh3/bwa.git && \
 	cd bwa && \
 	make
+	cp bwa /usr/bin
+	
+RUN apt-get install -y bedtools
 
 
 
