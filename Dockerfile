@@ -30,7 +30,7 @@ RUN git clone --recursive https://github.com/vcflib/vcflib.git && \
 	make && \
 	cp bin/* /usr/bin
 	
-RUN pip install variant_tools
+##RUN pip install variant_tools
 
 
 
