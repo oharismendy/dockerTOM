@@ -20,7 +20,7 @@ RUN git clone https://github.com/lh3/bwa.git && \
 	cd bwa && \
 	make
 
-COPY bwa /usr/local/bin
+COPY /opt/bwa/bwa /usr/local/bin
 
 RUN apt-get install -y bedtools
 
@@ -30,7 +30,7 @@ RUN git clone --recursive https://github.com/vcflib/vcflib.git && \
 	cd vcflib && \
 	make
 
-COPY bin/* /usr/local/bin
+COPY /opt/vcflib/bin/* /usr/local/bin
 
 RUN chmod a+x /usr/local/bin/*
 
@@ -38,5 +38,4 @@ RUN groupadd -r -g 1000 ubuntu && useradd -r -g ubuntu -u 1000 ubuntu
 USER ubuntu
 
 CMD ["/bin/bash"]
-	
 ##RUN pip install variant_tools
