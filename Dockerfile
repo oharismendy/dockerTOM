@@ -10,10 +10,11 @@ WORKDIR /opt
 ### install
 RUN apt-get update
 
-RUN apt-get install -y  autoconf vim python-pip python-dev cmake build-essential \
+RUN apt-get install -y  autoconf python-pip python-dev build-essential \
   git g++ libncurses5-dev \
- libssl-dev make pkg-config software-properties-common python wget zip zlibc \
- zlib1g zlib1g-dev
+ libssl-dev pkg-config software-properties-common \
+ python cmake make wget vim zip zlibc \
+ zlib1g zlib1g-dev libboost-all-dev libbz2-dev
 
 RUN apt-get install -y samtools
 
