@@ -18,7 +18,7 @@ RUN apt-get install -y  autoconf python-pip python-dev build-essential \
 
 RUN apt-get install -y samtools
 
-RUN pip install --upgrade pip &&\
+RUN pip install --upgrade pip && \
     pip install variant_tools
 
 RUN apt-get install -y bedtools
@@ -27,14 +27,14 @@ RUN apt-get install -y vcftools
 
 RUN git clone https://github.com/lh3/bwa.git && \
 	cd bwa && \
-	make
+	make &&\
   cp bwa /usr/bin
 
 WORKDIR /opt
 
 RUN git clone --recursive https://github.com/vcflib/vcflib.git && \
 	cd vcflib && \
-	make
+	make &&\
   cp bin/* /usr/bin
 
 RUN chmod a+x /usr/local/bin/*
