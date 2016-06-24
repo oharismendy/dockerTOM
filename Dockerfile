@@ -10,7 +10,7 @@ WORKDIR /opt
 ### install
 RUN apt-get update
 
-RUN apt-get install -y  autoconf vim python-pip python-dev build-essential git g++ libncurses5-dev \
+RUN apt-get install -y  autoconf vim python-pip python-dev make cmake build-essential git g++ libncurses5-dev \
  libssl-dev make pkg-config software-properties-common python wget zip zlibc \
  zlib1g zlib1g-dev
 
