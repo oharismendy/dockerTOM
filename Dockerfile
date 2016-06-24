@@ -17,7 +17,8 @@ RUN apt-get install -y  autoconf vim python-pip python-dev cmake build-essential
 
 RUN apt-get install -y samtools
 
-RUN pip install variant_tools
+RUN pip install --upgrade pip &&\
+    pip install variant_tools
 
 RUN apt-get install -y bedtools
 
