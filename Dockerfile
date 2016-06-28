@@ -14,7 +14,8 @@ RUN apt-get install -y  autoconf python-pip python-dev build-essential \
   git g++ libncurses5-dev \
  libssl-dev pkg-config software-properties-common \
  python cmake make wget vim zip zlibc \
- zlib1g zlib1g-dev libboost-all-dev libbz2-dev
+ zlib1g zlib1g-dev libboost-all-dev libbz2-dev \
+ screen curl
 
 RUN apt-get install -y samtools
 
@@ -41,7 +42,11 @@ RUN git clone --recursive https://github.com/vcflib/vcflib.git && \
 
 RUN chmod a+x /usr/local/bin/*
 
-RUN groupadd -r -g 1000 ubuntu && useradd -r -g ubuntu -u 1000 ubuntu
+RUN groupadd -r -g 1000 ubuntu && \
+    useradd -r -g ubuntu -u 1000 ubuntu && \
+    chown -R ubuntu: /home/ubuntu
+
+WORKDIR /home/ubuntu 
 
 USER ubuntu
 
