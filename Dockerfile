@@ -25,6 +25,8 @@ RUN apt-get install -y bedtools
 
 RUN apt-get install -y vcftools
 
+RUN apt-get install -y bcftools
+
 RUN git clone https://github.com/lh3/bwa.git && \
 	cd bwa && \
 	make &&\
