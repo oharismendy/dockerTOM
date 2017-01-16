@@ -53,10 +53,10 @@ RUN wget https://github.com/samtools/bcftools/releases/download/1.3.1/bcftools-1
 	
 	
 RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2.26.0.tar.gz && \
-	tar -xjvf bedtools-2.26.0.tar.bz2 && \
-	cd bedtools-2.26.0 && \
+	tar -xjzf bedtools-2.26.0.tar.gz && \
+	cd bedtools2 && \
 	make && \
-	make install 
+	cp bin/* /usr/local/bin 
 
 RUN wget https://github.com/vcftools/vcftools/releases/download/v0.1.14/vcftools-0.1.14.tar.gz && \
 	tar -xjvf vcftools-0.1.14.tar.bz2 && \
@@ -78,9 +78,9 @@ RUN wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.15.tar.bz2 && \
 RUN git clone --recursive https://github.com/vcflib/vcflib.git && \
 	cd vcflib && \
 	make &&\
-  cp bin/* /usr/bin
+  cp bin/* /usr/local/bin
 
-RUN chmod a+x /usr/local/bin/*
+RUN chmod a+x /usr/local/bin/* 
 
 RUN groupadd -r -g 1000 ubuntu && useradd -r -g ubuntu -u 1000 ubuntu
 
