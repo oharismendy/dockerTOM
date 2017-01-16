@@ -33,27 +33,47 @@ zlibc \
 zlib1g \
 zlib1g-dev
 
+RUN wget https://github.com/samtools/htslib/releases/download/1.3.2/htslib-1.3.2.tar.bz2 && \
+	tar -xjvf htslib-1.3.2.tar.bz2 && \
+	cd htslib-1.3.2 && \
+	make && \
+	make install 
 
+RUN wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2 && \
+	tar -xjvf samtools-1.3.1.tar.bz2 && \
+	cd samtools-1.3.1 && \
+	make && \
+	make install 
 
+RUN wget https://github.com/samtools/bcftools/releases/download/1.3.1/bcftools-1.3.1.tar.bz2 && \
+	tar -xjvf bcftools-1.3.1.tar.bz2 && \
+	cd bcftools-1.3.1 && \
+	make && \
+	make install 
+	
+	
+RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2.26.0.tar.gz && \
+	tar -xjvf bedtools-2.26.0.tar.bz2 && \
+	cd bedtools-2.26.0 && \
+	make && \
+	make install 
 
-
-RUN apt-get install -y samtools
+RUN wget https://github.com/vcftools/vcftools/releases/download/v0.1.14/vcftools-0.1.14.tar.gz && \
+	tar -xjvf vcftools-0.1.14.tar.bz2 && \
+	cd vcftools-0.1.14 && \
+	make && \
+	make install 	
 
 RUN pip install --upgrade pip && \
     pip install variant_tools
 
-RUN apt-get install -y bedtools
 
-RUN apt-get install -y vcftools
-
-RUN apt-get install -y bcftools
-
-RUN git clone https://github.com/lh3/bwa.git && \
-	cd bwa && \
-	make &&\
-  cp bwa /usr/bin
-
-WORKDIR /opt
+RUN wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.15.tar.bz2 && \
+	tar -xjvf bwa-0.7.15.tar.bz2 && \
+	cd bwa-0.7.15 && \
+	make && \
+	make install 
+	
 
 RUN git clone --recursive https://github.com/vcflib/vcflib.git && \
 	cd vcflib && \
@@ -64,6 +84,6 @@ RUN chmod a+x /usr/local/bin/*
 
 RUN groupadd -r -g 1000 ubuntu && useradd -r -g ubuntu -u 1000 ubuntu
 
-WORKDIR /data
+WORKDIR /home/ubuntu
 
 CMD ["/bin/bash"]
