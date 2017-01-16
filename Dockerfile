@@ -80,6 +80,8 @@ RUN git clone --recursive https://github.com/vcflib/vcflib.git && \
 	make &&\
   cp bin/* /usr/local/bin
 
+WORKDIR /opt
+
 RUN chmod a+x /usr/local/bin/* 
 
 RUN groupadd -r -g 1000 ubuntu && useradd -r -g ubuntu -u 1000 ubuntu
