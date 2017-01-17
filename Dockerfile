@@ -53,7 +53,7 @@ RUN wget https://github.com/samtools/bcftools/releases/download/1.3.1/bcftools-1
 	
 	
 RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2.26.0.tar.gz && \
-	tar -xjzf bedtools-2.26.0.tar.gz && \
+	tar -xvzf bedtools-2.26.0.tar.gz && \
 	cd bedtools2 && \
 	make && \
 	cp bin/* /usr/local/bin 
