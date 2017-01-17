@@ -59,7 +59,7 @@ RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2
 	cp bin/* /usr/local/bin 
 
 RUN wget https://github.com/vcftools/vcftools/releases/download/v0.1.14/vcftools-0.1.14.tar.gz && \
-	tar -xjvf vcftools-0.1.14.tar.bz2 && \
+	tar -xzvf vcftools-0.1.14.tar.gz && \
 	cd vcftools-0.1.14 && \
 	make && \
 	make install 	
