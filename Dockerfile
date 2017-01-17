@@ -58,6 +58,7 @@ RUN wget https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2
 	make && \
 	cp bin/* /usr/local/bin 
 
+
 RUN wget https://github.com/vcftools/vcftools/releases/download/v0.1.14/vcftools-0.1.14.tar.gz && \
 	tar -xzvf vcftools-0.1.14.tar.gz && \
 	cd vcftools-0.1.14 && \
@@ -65,21 +66,23 @@ RUN wget https://github.com/vcftools/vcftools/releases/download/v0.1.14/vcftools
 	make && \
 	make install 	
 
+
 RUN pip install --upgrade pip && \
     pip install variant_tools
+
 
 
 RUN wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.15.tar.bz2 && \
 	tar -xjvf bwa-0.7.15.tar.bz2 && \
 	cd bwa-0.7.15 && \
 	make && \
-	make install 
-	
+	cp bwa /usr/local/bin
+
 
 RUN git clone --recursive https://github.com/vcflib/vcflib.git && \
 	cd vcflib && \
 	make &&\
-  cp bin/* /usr/local/bin
+    cp bin/* /usr/local/bin
 
 WORKDIR /opt
 
