@@ -31,7 +31,8 @@ wget \
 zip \
 zlibc \
 zlib1g \
-zlib1g-dev
+zlib1g-dev \
+r-base
 
 RUN wget https://github.com/samtools/htslib/releases/download/1.3.2/htslib-1.3.2.tar.bz2 && \
 	tar -xjvf htslib-1.3.2.tar.bz2 && \
