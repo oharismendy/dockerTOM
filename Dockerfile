@@ -88,8 +88,6 @@ WORKDIR /opt
 
 RUN chmod a+x /usr/local/bin/* 
 
-RUN groupadd -r -g 1000 ubuntu && useradd -r -g ubuntu -u 1000 ubuntu
-
-WORKDIR /home/ubuntu
+WORKDIR /scratch
 
 CMD ["/bin/bash"]
