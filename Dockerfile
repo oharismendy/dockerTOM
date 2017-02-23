@@ -69,9 +69,12 @@ RUN wget https://github.com/vcftools/vcftools/releases/download/v0.1.14/vcftools
 
 
 RUN pip install --upgrade pip && \
-    pip install variant_tools
+    pip install variant_tools \
+    multiqc
 
-
+RUN wget http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip &&\
+	unzip fastqc_v0.11.5.zip &&\
+	cp FastQC/fastqc /usr/local/bin
 
 RUN wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.15.tar.bz2 && \
 	tar -xjvf bwa-0.7.15.tar.bz2 && \
