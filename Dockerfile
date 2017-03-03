@@ -8,8 +8,8 @@ MAINTAINER Olivier Harismendy "oharismendy@ucsd.edu"
 WORKDIR /opt
 
 ### Set up CRAN repo
-RUN echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list \
-	gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9 \
+RUN echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list && \
+	gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9 && \
 	gpg -a --export E084DAB9 | apt-key add - 
 
 ### install
