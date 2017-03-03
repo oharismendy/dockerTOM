@@ -7,6 +7,11 @@ MAINTAINER Olivier Harismendy "oharismendy@ucsd.edu"
 ### change a working directory to /opt #######
 WORKDIR /opt
 
+### Set up CRAN repo
+RUN echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list \
+	gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9 \
+	gpg -a --export E084DAB9 | apt-key add - 
+
 ### install
 RUN  apt-get update && apt-get install -y  \
 autoconf \
@@ -32,7 +37,10 @@ zip \
 zlibc \
 zlib1g \
 zlib1g-dev \
-r-base
+r-base \
+r-base-dev 
+
+
 
 RUN wget https://github.com/samtools/htslib/releases/download/1.3.2/htslib-1.3.2.tar.bz2 && \
 	tar -xjvf htslib-1.3.2.tar.bz2 && \
