@@ -75,6 +75,9 @@ RUN wget https://github.com/vcftools/vcftools/releases/download/v0.1.14/vcftools
 	make && \
 	make install 	
 
+RUN wget https://github.com/alexdobin/STAR/archive/2.6.0c.tar.gz && \
+	tar -xzvf STAR-2.6.0c.tar.gz && \
+	cp STAR-2.6.0c/bin/Linux_x86_64_static/STAR* /usr/local/bin 
 
 RUN pip install --upgrade pip && \
     pip install variant_tools \
