@@ -79,8 +79,7 @@ RUN wget https://github.com/alexdobin/STAR/archive/2.6.0c.tar.gz && \
 	tar -xzvf 2.6.0c.tar.gz && \
 	cp STAR-2.6.0c/bin/Linux_x86_64_static/STAR* /usr/local/bin 
 
-RUN pip install --upgrade pip && \
-    pip install variant_tools \
+RUN pip install variant_tools \
     multiqc
 
 RUN wget http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip &&\
