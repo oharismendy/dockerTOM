@@ -38,7 +38,9 @@ zlibc \
 zlib1g \
 zlib1g-dev \
 r-base \
-r-base-dev 
+r-base-dev \
+default-jre \
+default-jdk
 
 
 
